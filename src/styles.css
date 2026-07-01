@@ -394,23 +394,30 @@ dd {
 }
 
 .thumbnail {
-  background-image: var(--video-thumbs-image);
-  background-repeat: no-repeat;
-  background-size: 300% 100%;
   height: 100%;
+  overflow: hidden;
+  position: relative;
   width: 100%;
 }
 
-.thumbnail-left {
-  background-position: left center;
+.thumbnail img {
+  display: block;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  width: 300%;
 }
 
-.thumbnail-center {
-  background-position: center center;
+.thumbnail-left img {
+  transform: translateX(0);
 }
 
-.thumbnail-right {
-  background-position: right center;
+.thumbnail-center img {
+  transform: translateX(-33.333333%);
+}
+
+.thumbnail-right img {
+  transform: translateX(-66.666667%);
 }
 
 .play-button {

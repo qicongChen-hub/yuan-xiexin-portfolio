@@ -113,10 +113,7 @@ function App() {
   }, [activeFilter]);
 
   return (
-    <div
-      className="site-shell"
-      style={{ '--video-thumbs-image': `url("${assetPath('assets/video-thumbnails.png')}")` }}
-    >
+    <div className="site-shell">
       <Header />
       <main>
         <Hero />
@@ -285,7 +282,11 @@ function VideoCard({ work }) {
 }
 
 function Thumbnail({ slot = 'left' }) {
-  return <div className={`thumbnail thumbnail-${slot}`} aria-hidden="true" />;
+  return (
+    <div className={`thumbnail thumbnail-${slot}`} aria-hidden="true">
+      <img src={assetPath('assets/video-thumbnails.png')} alt="" />
+    </div>
+  );
 }
 
 function ArticleRow({ article, index }) {
