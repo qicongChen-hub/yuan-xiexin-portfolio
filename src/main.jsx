@@ -19,6 +19,8 @@ const filters = [
   { id: 'article', label: '公众号文章' },
 ];
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const featuredWorks = [
   {
     type: 'video',
@@ -111,7 +113,10 @@ function App() {
   }, [activeFilter]);
 
   return (
-    <div className="site-shell">
+    <div
+      className="site-shell"
+      style={{ '--video-thumbs-image': `url("${assetPath('assets/video-thumbnails.png')}")` }}
+    >
       <Header />
       <main>
         <Hero />
@@ -212,14 +217,14 @@ function Hero() {
             查看代表作品
             <ArrowUpRight size={18} />
           </a>
-          <a className="button secondary" href="/yuan-xiexin-resume.txt" download>
+          <a className="button secondary" href={assetPath('yuan-xiexin-resume.txt')} download>
             <Download size={18} />
             下载简历
           </a>
         </div>
       </div>
       <div className="hero-visual" aria-label="新闻作品素材拼贴">
-        <img src="/assets/hero-collage.png" alt="新闻采访、视频剪辑与报道素材拼贴" />
+        <img src={assetPath('assets/hero-collage.png')} alt="新闻采访、视频剪辑与报道素材拼贴" />
         <div className="visual-note">
           <span>Portfolio 2026</span>
           <strong>Video + Articles</strong>
@@ -319,7 +324,7 @@ function ResumeContact() {
             <MapPin size={17} />
             新闻传播 / 内容岗位
           </span>
-          <a href="/yuan-xiexin-resume.txt" download>
+          <a href={assetPath('yuan-xiexin-resume.txt')} download>
             <Download size={17} />
             下载简历文件
           </a>

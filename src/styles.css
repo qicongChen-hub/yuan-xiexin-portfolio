@@ -394,7 +394,7 @@ dd {
 }
 
 .thumbnail {
-  background-image: url('/assets/video-thumbnails.png');
+  background-image: var(--video-thumbs-image);
   background-repeat: no-repeat;
   background-size: 300% 100%;
   height: 100%;
